@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
-import Dashboard from './pages/dashboard11/index.vue'
+import Dashboard from './pages/dashboard15/index.vue'
 </script>
 
 <template>
