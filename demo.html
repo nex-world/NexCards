@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexCards - 原创设定管理工具</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-100 font-sans flex h-screen overflow-hidden">
+    <!-- 侧边栏 -->
+    <div class="w-64 bg-gray-800 text-white flex flex-col">
+        <!-- 顶部logo -->
+        <div class="p-4 border-b border-gray-700 flex items-center">
+            <i class="fas fa-book-open text-2xl text-purple-400 mr-3"></i>
+            <h1 class="text-xl font-bold">NexCards</h1>
+        </div>
+        
+        <!-- 项目选择 -->
+        <div class="p-4 border-b border-gray-700">
+            <div class="flex justify-between items-center mb-2">
+                <h2 class="font-semibold">我的项目</h2>
+                <button class="text-gray-400 hover:text-white">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+            <div class="space-y-1">
+                <div class="flex items-center p-2 rounded bg-gray-700">
+                    <i class="fas fa-fantasy-flight-hexagon mr-2 text-purple-400"></i>
+                    <span>星辰幻想录</span>
+                </div>
+                <div class="flex items-center p-2 rounded hover:bg-gray-700">
+                    <i class="fas fa-robot mr-2 text-blue-400"></i>
+                    <span>机械纪元</span>
+                </div>
+                <div class="flex items-center p-2 rounded hover:bg-gray-700">
+                    <i class="fas fa-mask mr-2 text-green-400"></i>
+                    <span>暗夜英雄传</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 导航菜单 -->
+        <div class="flex-1 overflow-y-auto p-2">
+            <div class="space-y-1">
+                <div class="p-2 rounded hover:bg-gray-700 flex items-center">
+                    <i class="fas fa-home mr-3 w-5 text-center"></i>
+                    <span>项目概览</span>
+                </div>
+                
+                <div class="p-2 rounded bg-gray-700 flex items-center">
+                    <i class="fas fa-users mr-3 w-5 text-center text-purple-400"></i>
+                    <span>角色管理</span>
+                </div>
+                
+                <div class="p-2 rounded hover:bg-gray-700 flex items-center">
+                    <i class="fas fa-globe mr-3 w-5 text-center"></i>
+                    <span>世界观</span>
+                </div>
+                
+                <div class="p-2 rounded hover:bg-gray-700 flex items-center">
+                    <i class="fas fa-cube mr-3 w-5 text-center"></i>
+                    <span>道具设定</span>
+                </div>
+                
+                <div class="p-2 rounded hover:bg-gray-700 flex items-center">
+                    <i class="fas fa-landmark mr-3 w-5 text-center"></i>
+                    <span>场景地点</span>
+                </div>
+                
+                <div class="p-2 rounded hover:bg-gray-700 flex items-center">
+                    <i class="fas fa-book mr-3 w-5 text-center"></i>
+                    <span>故事线</span>
+                </div>
+                
+                <div class="p-2 rounded hover:bg-gray-700 flex items-center">
+                    <i class="fas fa-image mr-3 w-5 text-center"></i>
+                    <span>美术资源</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 用户区域 -->
+        <div class="p-4 border-t border-gray-700 flex items-center">
+            <div class="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center mr-3">
+                <span class="text-sm font-bold">创</span>
+            </div>
+            <div class="flex-1">
+                <div class="font-medium">创作者</div>
+                <div class="text-xs text-gray-400">专业版</div>
+            </div>
+            <button class="text-gray-400 hover:text-white">
+                <i class="fas fa-cog"></i>
+            </button>
+        </div>
+    </div>
+    
+    <!-- 主内容区 -->
+    <div class="flex-1 flex flex-col overflow-hidden">
+        <!-- 顶部工具栏 -->
+        <div class="bg-white border-b border-gray-200 p-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <h2 class="text-xl font-bold">角色管理</h2>
+                <div class="ml-4 relative">
+                    <input type="text" placeholder="搜索角色..." class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg w-64 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                    <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                </div>
+            </div>
+            <div class="flex space-x-2">
+                <button class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg flex items-center">
+                    <i class="fas fa-filter mr-2"></i>
+                    <span>筛选</span>
+                </button>
+                <button class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg flex items-center">
+                    <i class="fas fa-plus mr-2"></i>
+                    <span>新建角色</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- 主操作区 -->
+        <div class="flex-1 overflow-auto p-6">
+            <!-- 角色列表和详情视图 -->
+            <div class="flex h-full">
+                <!-- 角色列表 -->
+                <div class="w-72 bg-white rounded-lg shadow mr-6 overflow-hidden flex flex-col">
+                    <div class="p-4 border-b border-gray-200">
+                        <h3 class="font-semibold">角色列表 (24)</h3>
+                    </div>
+                    <div class="flex-1 overflow-y-auto">
+                        <div class="space-y-1 p-2">
+                            <div class="p-3 rounded-lg bg-purple-50 border border-purple-200">
+                                <div class="font-medium">星野 光</div>
+                                <div class="text-sm text-gray-500">主角/星辰使者</div>
+                            </div>
+                            <div class="p-3 rounded-lg hover:bg-gray-50 border border-transparent hover:border-gray-200">
+                                <div class="font-medium">月城 雪</div>
+                                <div class="text-sm text-gray-500">主角/月之公主</div>
+                            </div>
+                            <div class="p-3 rounded-lg hover:bg-gray-50 border border-transparent hover:border-gray-200">
+                                <div class="font-medium">暗影伯爵</div>
+                                <div class="text-sm text-gray-500">反派/暗影族首领</div>
+                            </div>
+                            <div class="p-3 rounded-lg hover:bg-gray-50 border border-transparent hover:border-gray-200">
+                                <div class="font-medium">机械师 零</div>
+                                <div class="text-sm text-gray-500">配角/技术支持</div>
+                            </div>
+                            <div class="p-3 rounded-lg hover:bg-gray-50 border border-transparent hover:border-gray-200">
+                                <div class="font-medium">莉莉安</div>
+                                <div class="text-sm text-gray-500">配角/星之守护者</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-2 border-t border-gray-200 text-center text-sm text-gray-500">
+                        <button class="text-purple-600 hover:text-purple-800">加载更多...</button>
+                    </div>
+                </div>
+                
+                <!-- 角色详情 -->
+                <div class="flex-1 bg-white rounded-lg shadow overflow-hidden flex flex-col">
+                    <!-- 角色详情顶部标签 -->
+                    <div class="border-b border-gray-200 flex">
+                        <button class="px-4 py-3 font-medium border-b-2 border-purple-500 text-purple-600">基本信息</button>
+                        <button class="px-4 py-3 font-medium text-gray-500 hover:text-gray-700">背景故事</button>
+                        <button class="px-4 py-3 font-medium text-gray-500 hover:text-gray-700">关系网络</button>
+                        <button class="px-4 py-3 font-medium text-gray-500 hover:text-gray-700">形象设计</button>
+                        <button class="px-4 py-3 font-medium text-gray-500 hover:text-gray-700">能力设定</button>
+                    </div>
+                    
+                    <!-- 角色详情内容 -->
+                    <div class="flex-1 overflow-auto p-6">
+                        <div class="flex mb-8">
+                            <!-- 角色头像 -->
+                            <div class="w-32 h-32 rounded-lg bg-purple-100 border border-purple-200 flex items-center justify-center mr-6">
+                                <i class="fas fa-user-astronaut text-4xl text-purple-400"></i>
+                            </div>
+                            
+                            <!-- 基本信息 -->
+                            <div class="flex-1">
+                                <div class="flex items-center mb-4">
+                                    <h3 class="text-2xl font-bold mr-4">星野 光</h3>
+                                    <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">主角</span>
+                                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full ml-2">星辰使者</span>
+                                </div>
+                                
+                                <div class="grid grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <label class="block text-sm text-gray-500 mb-1">性别</label>
+                                        <div class="font-medium">男</div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm text-gray-500 mb-1">年龄</label>
+                                        <div class="font-medium">17岁</div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm text-gray-500 mb-1">身高</label>
+                                        <div class="font-medium">175cm</div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm text-gray-500 mb-1">生日</label>
+                                        <div class="font-medium">7月14日</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-sm text-gray-500 mb-1">简介</label>
+                                    <div class="text-gray-700">
+                                        普通高中生意外获得星辰之力，成为新一代星辰使者。性格开朗乐观，有着强烈的正义感，但有时会因冲动而陷入困境。
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 详细信息 -->
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="font-bold text-lg mb-3 border-b pb-2">角色性格</h4>
+                                <div class="space-y-2">
+                                    <div class="flex items-start">
+                                        <div class="w-24 text-sm text-gray-500 pt-1">核心特质</div>
+                                        <div class="flex-1">
+                                            <div class="flex flex-wrap gap-2">
+                                                <span class="px-2 py-1 bg-green-100 text-green-800 text-sm rounded-full">乐观</span>
+                                                <span class="px-2 py-1 bg-green-100 text-green-800 text-sm rounded-full">勇敢</span>
+                                                <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full">冲动</span>
+                                                <span class="px-2 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">重情义</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="w-24 text-sm text-gray-500">详细描述</div>
+                                        <div class="flex-1 text-gray-700">
+                                            <textarea class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" rows="3">星野光天性乐观，即使在最困难的情况下也能保持笑容。他对朋友极其忠诚，愿意为保护他人而冒险。然而，他有时会因过于相信自己的直觉而冲动行事，导致计划外的状况。</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-bold text-lg mb-3 border-b pb-2">能力设定</h4>
+                                <div class="space-y-4">
+                                    <div class="flex items-start">
+                                        <div class="w-24 text-sm text-gray-500 pt-1">星辰之力</div>
+                                        <div class="flex-1">
+                                            <div class="mb-2">
+                                                <div class="font-medium mb-1">星光冲击</div>
+                                                <div class="text-sm text-gray-600">凝聚星辰能量发射光束攻击，威力随情绪波动而变化</div>
+                                            </div>
+                                            <div class="mb-2">
+                                                <div class="font-medium mb-1">星之护盾</div>
+                                                <div class="text-sm text-gray-600">形成星光屏障防御攻击，但对暗属性效果较弱</div>
+                                            </div>
+                                            <button class="text-sm text-purple-600 hover:text-purple-800 flex items-center">
+                                                <i class="fas fa-plus mr-1"></i> 添加能力
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-bold text-lg mb-3 border-b pb-2">重要关系</h4>
+                                <div class="grid grid-cols-3 gap-4">
+                                    <div class="p-3 border border-gray-200 rounded-lg hover:bg-gray-50">
+                                        <div class="font-medium">月城 雪</div>
+                                        <div class="text-sm text-gray-500">恋人/战友</div>
+                                        <div class="text-sm text-gray-700 mt-1">从小一起长大的青梅竹马，后一同觉醒成为使者</div>
+                                    </div>
+                                    <div class="p-3 border border-gray-200 rounded-lg hover:bg-gray-50">
+                                        <div class="font-medium">机械师 零</div>
+                                        <div class="text-sm text-gray-500">导师/朋友</div>
+                                        <div class="text-sm text-gray-700 mt-1">指导星野光掌握星辰之力的神秘机械师</div>
+                                    </div>
+                                    <div class="p-3 border border-gray-200 rounded-lg hover:bg-gray-50">
+                                        <div class="font-medium">暗影伯爵</div>
+                                        <div class="text-sm text-gray-500">宿敌</div>
+                                        <div class="text-sm text-gray-700 mt-1">企图吞噬星辰之力的黑暗势力首领</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 底部操作栏 -->
+                    <div class="p-4 border-t border-gray-200 flex justify-between">
+                        <div class="text-sm text-gray-500">
+                            最后更新: 2023-06-15 14:30
+                        </div>
+                        <div class="space-x-2">
+                            <button class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">取消</button>
+                            <button class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg">保存更改</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
